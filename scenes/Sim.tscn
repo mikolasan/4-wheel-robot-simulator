@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/Wheely.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Sim.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Camera.gd" type="Script" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.517647, 0.611765, 0.290196, 1 )
+
+[sub_resource type="PlaneMesh" id=2]
+material = SubResource( 1 )
+size = Vector2( 200, 200 )
+subdivide_width = 4
+subdivide_depth = 4
+
+[node name="Sim" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Wheely" parent="." instance=ExtResource( 1 )]
+sim_node_path = NodePath("..")
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.389725, 0.142215, -0.909884, -0.0112377, 0.987197, 0.159113, 0.920863, 0.0722353, -0.383137, -6.00782, 5.44137, -3.06417 )
+fov = 78.9884
+script = ExtResource( 3 )
+
+[node name="UI" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI"]
+margin_right = 40.0
+margin_bottom = 14.0
