@@ -22,6 +22,8 @@ The repo was in Python and only producing a plot. Here's what author said about 
 >
 > Drag and Lift is considered as estimations. Bluff body drag will be considered
 
+<img src="results.png" width="300" alt="4 graphs">
+
 GDScript is kinda close to Python. I put this code into Godot in Wheely.gd 
 
 ### Kalman filter
